@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Soccer Game</title>
+    <link rel="stylesheet" href="./css/reset.css">
+    <link rel="stylesheet" href="./css/style.css">
+    <link rel="stylesheet" href="./css/notMobile.css" media="screen and (min-width: 1025px)">
+</head>
+<body>
+    <div id="contents">
+        <header>
+            <div id="navBar">
+                <img src="./img/cup.png" alt="">
+                <div id="highScoreBoard">
+                    <p id="user"></p>
+                    <p id="highScore"></p>
+                </div>
+            </div>
+        </header>
+        <div id="main">
+            <section id="gameScreen">
+                <div id="scoreBoard">
+                    <span id="score">0</span>
+                </div>
+                <div id="ball"></div>
+                <div id="notice">
+                    <p>게임을 시작하려면<br>아무데나 클릭하세요.</p>
+                </div>
+            </section>
+        </div>
+    </div>
+    <script src="./js/ball.js"></script>
+</body>
+</html>
