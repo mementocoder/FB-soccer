@@ -7,20 +7,21 @@
     <title>Soccer Game</title>
     <link rel="stylesheet" href="./css/reset.css">
     <link rel="stylesheet" href="./css/style.css">
-    <link rel="stylesheet" href="./css/notMobile.css" media="screen and (min-width: 1025px)">
+    <link rel="stylesheet" href="./css/trap.css">
+    <link rel="stylesheet" href="./css/notMobile.css" media="screen and (min-width: 1023px)">
 </head>
 <body>
     <div id="contents">
-        <header>
-            <div id="navBar">
+        <div id="main">
+            <header>
+                 <div id="navBar">
                 <img src="./img/cup.png" alt="">
                 <div id="highScoreBoard">
                     <p id="user"></p>
                     <p id="highScore"></p>
                 </div>
             </div>
-        </header>
-        <div id="main">
+            </header>
             <section id="gameScreen">
                 <div id="scoreBoard">
                     <span id="score">0</span>
@@ -30,8 +31,17 @@
                     <p>게임을 시작하려면<br>아무데나 클릭하세요.</p>
                 </div>
             </section>
+            <section id="trapContainer">
+                <div id="lightContainer">
+                    <!-- 조명 함정이 나오는 곳 -->
+                </div>
+                <div id="fireContainer">
+                    <!-- 폭죽 함정이 나오는 곳 -->
+                </div>
+            </section>
         </div>
     </div>
     <script src="./js/ball.js"></script>
+    <script src="./js/trap.js"></script>
 </body>
 </html>

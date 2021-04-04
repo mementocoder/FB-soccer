@@ -9,6 +9,7 @@ const highScore = document.querySelector('#highScore');
 user.innerHTML = localStorage.user;
 highScore.innerHTML = '최고기록:' + localStorage.highScore;
 
+const windowWidth = document.body.getBoundingClientRect().width
 const bottom = gameScreen.getBoundingClientRect().height;
 const wall = gameScreen.getBoundingClientRect().width;
 const ballWidth = ball.getBoundingClientRect().width + 5;
@@ -16,8 +17,8 @@ const ballWidth = ball.getBoundingClientRect().width + 5;
 const ballPos = { x: 0, y: 0 };
 const ballV = { x: 0, y: 0 };
 
-ballPos.x = ball.getBoundingClientRect().x;
-ballPos.y = ball.getBoundingClientRect().y;
+ballPos.x = ballPos.x = wall / 2;
+ballPos.y = ballPos.y = bottom / 5;
 
 const g = 29.8;
 const dt = 0.1;
@@ -26,8 +27,13 @@ const t = 0.0;
 let isStart = false;
 let userScore = 0;
 
-var gameOver = function(timeId) {
+let timeId2;
+
+var gameOver = function(timeId,timeId2) {
     clearInterval(timeId);
+    clearInterval(timeId2);
+
+    light.innerHTML = '';
 
     if (userScore > Number(localStorage.highScore) || !localStorage.highScore) {
         userName = prompt('이 기기의 최고 기록입니다. 사용자 이름을 입력해주세요.')
@@ -54,7 +60,7 @@ var gravity = function (timeId) {
     ballPos.y = ballPos.y + ballV.y*dt;
     
     if (ballPos.y > bottom) {
-        gameOver(timeId);
+        gameOver(timeId, timeId2);
     }
     
     ball.style.top = ballPos.y + 'px';
@@ -68,11 +74,30 @@ var gravity = function (timeId) {
 }
 
 ball.addEventListener('click', function(e) {
-    let mousePosX = e.pageX - 50; // -50은 공의 반지름
+    let mousePosX = e.pageX - ((windowWidth - wall) / 2) - 50 
+    //()안의 수식은 모바일이 아닐 경우 게임 화면의 위치를 구하는 공식 -50은 공의 반지름
     ballV.y = -140;
-    ballV.x = (ballPos.x - mousePosX) / 7;
+    ballV.x = (ballPos.x - mousePosX) / 4;
     userScore += 1;
     score.innerHTML = userScore;
+
+    if (userScore == 10 || userScore == 40) {
+        Light1()
+    }
+    if (userScore == 20 || userScore == 60) {
+        Light2()
+    }
+    if (userScore == 20) {
+        timeId2 = setInterval(() => {
+            Fire();
+        }, 3000); 
+    }
+    if (userScore == 50) {
+        clearInterval(timeId2);
+        timeId2 = setInterval(() => {
+            Fire();
+        }, 1000); 
+    }
 });
 
 gameScreen.addEventListener('click', function() {

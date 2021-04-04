@@ -1,0 +1,42 @@
+@keyframes light-ani-1 {
+    0% {
+        transform: translateY(-2000px) rotate(-15deg);
+    }
+    100% {
+        transform: translateY(-2000px) rotate(30deg);
+    }
+}
+@keyframes light-ani-2 {
+    0% {
+        transform: translateY(-2000px) rotate(15deg);
+    }
+    100% {
+        transform: translateY(-2000px) rotate(-30deg);
+    }
+}
+
+#lightContainer {
+    display: flex;
+    justify-content: space-between;
+}
+.light1 {
+    float: left;
+    width: 100px; height: 800vh;
+    margin-right: 5%;
+    background: rgb(255, 255, 0, 0.3);
+    animation: light-ani-1 3s infinite alternate;
+}
+.light2 {
+    float: right;
+    width: 100px; height: 800vh;
+    background: rgb(255, 255, 0, 0.3);
+    animation: light-ani-2 3s infinite alternate;
+}
+
+#fireContainer {
+    position: absolute;
+    bottom: 0; left: 0;
+}
+.fire {
+    position: absolute;
+}

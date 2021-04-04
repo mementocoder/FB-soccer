@@ -1,9 +1,9 @@
 header {
-    position: absolute; top: 0; right: 0;
+    position: absolute; top: 0; left: 0;
     z-index: 10;
 }
 #navBar {
-    width: 100vw;
+    width: 100%;
     display: flex;
 }
 #navBar > img {
@@ -15,7 +15,9 @@ header {
     font-size: 1.5rem;
 }
 #main {
+    position: relative;
     width: 100%; height: 100vh;
+    overflow: hidden;
 }
 #gameScreen {
     position: relative;
@@ -31,11 +33,14 @@ header {
 }
 #ball {
     position: absolute;
+    z-index: 100;
     top:20%; left: 35%;
     width: 100px;
     height: 100px;
+    margin: 15px;
     background-image: url('../img/soccerball.png');
-    background-size: cover;
+    background-size: 100px 100px;
+    background-repeat: no-repeat;
 }
 #notice > p {
     text-align: center;
