@@ -77,7 +77,7 @@ ball.addEventListener('click', function(e) {
     let mousePosX = e.pageX - ((windowWidth - wall) / 2) - 50 
     //()안의 수식은 모바일이 아닐 경우 게임 화면의 위치를 구하는 공식 -50은 공의 반지름
     ballV.y = -140;
-    ballV.x = (ballPos.x - mousePosX) / 4;
+    ballV.x = (ballPos.x - mousePosX) / 7;
     userScore += 1;
     score.innerHTML = userScore;
 
@@ -111,7 +111,7 @@ gameScreen.addEventListener('click', function() {
         score.innerHTML = userScore;
         let timeId = setInterval(() => {
             gravity(timeId);
-        }, 1000/60);
+        }, 10);
         
         isStart = true;
         navBar.style.opacity = 0;
