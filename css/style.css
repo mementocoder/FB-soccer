@@ -37,12 +37,14 @@ header {
     top:20%; left: 35%;
     width: 100px;
     height: 100px;
-    margin: 15px;
+    padding-top: 30px;
     background-image: url('../img/soccerball.png');
     background-size: 100px 100px;
     background-repeat: no-repeat;
+    background-position: bottom;
 }
 #notice > p {
     text-align: center;
     font-size: 1.3rem;
 }
+

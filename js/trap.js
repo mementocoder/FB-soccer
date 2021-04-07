@@ -15,6 +15,7 @@ function Light2() {
 function Fire() {
     this.mainElem = document.createElement('div');
     this.mainElem.classList.add('fire');
+    this.mainElem.innerHTML = '<img src="./img/fire1.png" alt="">'
     fire.appendChild(this.mainElem);
 
     let red = Math.floor((Math.random() * 256) + 1);
@@ -38,8 +39,12 @@ function Fire() {
             this.mainElem.style.transform = 'rotate('+ rotate +'deg) translateY('+ y +'px)';
         }
         else {
-            clearInterval(this.timeId)
-            fire.removeChild(fire.lastChild)
+            setTimeout(function() {
+                clearInterval(this.timeId)
+                try {
+                    fire.removeChild(fire.lastChild)
+                } catch {}
+            }, 300);
         }
     }
 

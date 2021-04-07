@@ -29,7 +29,7 @@ let userScore = 0;
 
 let timeId2;
 
-var gameOver = function(timeId,timeId2) {
+var gameOver = function(timeId) {
     clearInterval(timeId);
     clearInterval(timeId2);
 
@@ -60,7 +60,7 @@ var gravity = function (timeId) {
     ballPos.y = ballPos.y + ballV.y*dt;
     
     if (ballPos.y > bottom) {
-        gameOver(timeId, timeId2);
+        gameOver(timeId);
     }
     
     ball.style.top = ballPos.y + 'px';
@@ -87,13 +87,19 @@ ball.addEventListener('click', function(e) {
     if (userScore == 20 || userScore == 60) {
         Light2()
     }
-    if (userScore == 20) {
+    if (userScore == 1) {
         timeId2 = setInterval(() => {
             Fire();
         }, 3000); 
     }
-    if (userScore == 50) {
-        clearInterval(timeId2);
+    if (userScore == 2) {
+        clearInterval(timeId2)
+        timeId2 = setInterval(() => {
+            Fire();
+        }, 2000); 
+    }
+    if (userScore == 3) {
+        clearInterval(timeId2)
         timeId2 = setInterval(() => {
             Fire();
         }, 1000); 

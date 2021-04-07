@@ -15,6 +15,18 @@
     }
 }
 
+@keyframes fire-ani-1 {
+    0% {
+        opacity: 0;
+    }
+    99%{
+        opacity: 0;
+    }
+    100% {
+        opacity: 1;
+    }
+}
+
 #lightContainer {
     display: flex;
     justify-content: space-between;
@@ -39,4 +51,10 @@
 }
 .fire {
     position: absolute;
+}
+.fire > img {
+    position: absolute;
+    left: -175px; top: -100px;
+    width: 350px; height: 350px;
+    animation: fire-ani-1 0.75s forwards;
 }
