@@ -22,7 +22,7 @@ function Fire() {
     let green =  Math.floor((Math.random() * 256) + 1);
     let blue =  Math.floor((Math.random() * 256) + 1);
     let rotate = Math.floor((Math.random() * 40) - 20);
-    let posleft = Math.floor((Math.random() * (wall/3)) + 200);
+    let posleft = Math.floor((Math.random() * (wall/3)) + 50);
 
     this.mainElem.style.width = '1px';
     this.mainElem.style.height = '40px';

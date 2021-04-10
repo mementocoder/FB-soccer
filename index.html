@@ -26,7 +26,10 @@
                 <div id="scoreBoard">
                     <span id="score">0</span>
                 </div>
-                <div id="ball"></div>
+                <div id="ball" onclick="audio.play();" value="PLAY"></div>
+                <script>
+                    var audio = new Audio('./mp3/ball.wav')
+                </script>
                 <div id="notice">
                     <p>게임을 시작하려면<br>아무데나 클릭하세요.</p>
                 </div>

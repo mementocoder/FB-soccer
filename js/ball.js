@@ -20,7 +20,7 @@ const ballV = { x: 0, y: 0 };
 ballPos.x = ballPos.x = wall / 2;
 ballPos.y = ballPos.y = bottom / 5;
 
-const g = 29.8;
+const g = 9.8;
 const dt = 0.1;
 const t = 0.0;
 
@@ -44,8 +44,8 @@ var gameOver = function(timeId) {
         highScore.innerHTML = '최고기록:' + localStorage.highScore;
     }
 
-    ballPos.x = wall / 2;
-    ballPos.y = bottom / 5;
+    ballPos.x = wall / 2.5;
+    ballPos.y = bottom / 2;
     ballV.x = 0;
     ballV.y = 0;
     
@@ -76,8 +76,8 @@ var gravity = function (timeId) {
 ball.addEventListener('click', function(e) {
     let mousePosX = e.pageX - ((windowWidth - wall) / 2) - 50 
     //()안의 수식은 모바일이 아닐 경우 게임 화면의 위치를 구하는 공식 -50은 공의 반지름
-    ballV.y = -140;
-    ballV.x = (ballPos.x - mousePosX) / 7;
+    ballV.y = -70;
+    ballV.x = (ballPos.x - mousePosX) / 10;
     userScore += 1;
     score.innerHTML = userScore;
 
@@ -87,22 +87,22 @@ ball.addEventListener('click', function(e) {
     if (userScore == 20 || userScore == 60) {
         Light2()
     }
-    if (userScore == 1) {
+    if (userScore == 30) {
         timeId2 = setInterval(() => {
             Fire();
         }, 3000); 
     }
-    if (userScore == 2) {
+    if (userScore == 50) {
         clearInterval(timeId2)
         timeId2 = setInterval(() => {
             Fire();
         }, 2000); 
     }
-    if (userScore == 3) {
+    if (userScore == 70) {
         clearInterval(timeId2)
         timeId2 = setInterval(() => {
             Fire();
-        }, 1000); 
+        }, 1500); 
     }
 });
 
@@ -111,7 +111,7 @@ gameScreen.addEventListener('click', function() {
         score.innerHTML = userScore;
         let timeId = setInterval(() => {
             gravity(timeId);
-        }, 10);
+        }, 8);
         
         isStart = true;
         navBar.style.opacity = 0;
